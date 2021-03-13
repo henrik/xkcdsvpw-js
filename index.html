@@ -1,0 +1,43 @@
+<script src="words.js" charset="utf-8"></script>
+
+<script>
+  var positions = 4;
+  var wordsLength = words.length;
+  var combinations = Math.pow(wordsLength, positions);
+
+  setTimeout(newPw, 0);
+
+  function newPw() {
+    var pw = Array.from(Array(positions), function() {
+      var i = Math.floor(Math.random() * words.length);
+      return words[i];
+    }).join(" ");
+    document.querySelector(".pw").innerHTML = pw;
+  }
+
+  function wnum(num) {
+    document.write(new Intl.NumberFormat("sv-SE").format(num));
+  }
+</script>
+
+<p>Ditt nya lösenord:</p>
+
+<p class="pw">…</p>
+
+<button onclick="newPw()">Ge mig ett till</button>
+
+<p>(eller ladda om sidan)</p>
+
+<footer>
+  <p>Svenskt XKCD-lösenord (lösenfras) / Swedish XKCD password (passphrase).</p>
+  <p>Av <a href="https://henrik.nyh.se">Henrik Nyh</a>. <a href="http://github.com/henrik/xkcdsvpw-js">Visa källkod.</a></p>
+  <p>Inspirerat av <a href="http://xkcd.com/936/">XKCD 936</a> och <a href="http://preshing.com/20110811/xkcd-password-generator">en engelsk generator</a>.</p>
+  <p>
+    <script>wnum(wordsLength)</script>
+    vanliga ord ^
+    <script>wnum(positions)</script>
+    positioner =
+    <script>wnum(combinations)</script>
+    möjligheter.
+  </p>
+</footer>
