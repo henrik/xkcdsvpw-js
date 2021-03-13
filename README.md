@@ -1,3 +1,3 @@
 # Swedish XKCD password generator
 
-Written in retro JS.
+In JS.
